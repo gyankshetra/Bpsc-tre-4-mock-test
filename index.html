@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyankshetra - Start Test</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #e8f5e9 0%, #f4fbf7 100%);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app-screen {
+      width: 100%;
+      max-width: 412px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 4px 20px 4px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #064e28;
+    }
+
+    .book-icon {
+      background: #c8e6c9;
+      border: 1px solid #81c784;
+      padding: 6px 8px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .top-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Test Header Card */
+    .test-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      margin-bottom: 20px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #064e28;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .test-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0c3e1e;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .test-subtitle {
+      font-size: 12px;
+      color: #616161;
+      margin-bottom: 20px;
+    }
+
+    /* Metric Boxes (3 Grid) */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .metric-box {
+      background: #e8f5e9;
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .m-icon {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .m-val {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0c3e1e;
+    }
+
+    .m-lbl {
+      font-size: 10px;
+      color: #55695c;
+      margin-top: 2px;
+    }
+
+    /* Instructions Section */
+    .instruction-section {
+      padding: 0 4px;
+      margin-bottom: 20px;
+    }
+
+    .ins-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0c3e1e;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .ins-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .ins-list li {
+      font-size: 13px;
+      color: #2e3d32;
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .ins-list li::before {
+      content: "•";
+      color: #048848;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* Note Yellow Banner */
+    .note-box {
+      background: #fef9c3;
+      border: 1px solid #fef08a;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .note-icon {
+      font-size: 20px;
+    }
+
+    .note-text {
+      font-size: 12px;
+      color: #713f12;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Start Button Card (Bottom Floating/Card) */
+    .start-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e0e0e0;
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .btn-start {
+      width: 100%;
+      background-color: #048848;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(4, 136, 72, 0.25);
+    }
+
+    .btn-start:active {
+      transform: scale(0.98);
+    }
+
+    .terms-text {
+      font-size: 10px;
+      color: #757575;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-screen">
+    
+    <!-- Top Header Bar -->
+    <div class="top-bar">
+      <div class="brand-logo">
+        <span class="book-icon">📖</span>
+        <span>Gyankshetra</span>
+      </div>
+      <div class="top-icons">
+        <div class="icon-btn">🔔</div>
+        <div class="icon-btn">👤</div>
+      </div>
+    </div>
+
+    <!-- Dynamic Test Detail Card -->
+    <div class="test-card">
+      <div class="tag-badge" id="tag-badge">🧪 CHEMISTRY • SET - 1</div>
+      <h1 class="test-title" id="test-title">BPSC TRE Chemical Reaction SET 1</h1>
+      <div class="test-subtitle">Bihar Public Service Commission - Teacher Recruitment</div>
+
+      <!-- 3 Grid Stat Indicators -->
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="m-icon">📋</div>
+          <div class="m-val" id="total-q">10 Questions</div>
+          <div class="m-lbl">Total MCQs</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="m-icon">⏱</div>
+          <div class="m-val" id="total-time">10 Minutes</div>
+          <div class="m-lbl">Time Duration</div>
+        </div>
+
+        <div class="metric-box">
+          <div class="m-icon">⚠️</div>
+          <div class="m-val">1/3 Negative</div>
+          <div class="m-lbl">Negative Marking</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions Area -->
+    <div class="instruction-section">
+      <div class="ins-title">📋 Instructions</div>
+      
+      <ul class="ins-list">
+        <li id="ins-q-count">कुल 10 प्रश्न, सभी बहुविकल्पीय हैं</li>
+        <li>प्रत्येक सही उत्तर के लिए 1 अंक दिया जाएगा</li>
+        <li>Do not refresh or exit the test once started</li>
+        <li>1/3 negative marking will be applied for incorrect answers</li>
+      </ul>
+
+      <!-- Yellow Note -->
+      <div class="note-box">
+        <div class="note-icon">💡</div>
+        <div class="note-text">
+          <strong>Note: परीक्षा शुरू करने के बाद वापस नहीं जा सकते। |</strong><br>
+          Note: Once the test starts, you cannot go back.
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Start Action Card -->
+    <div class="start-card">
+      <button class="btn-start" onclick="startTest()">
+        START TEST <span>➔</span>
+      </button>
+      <div class="terms-text">By starting, you agree to the Test Rules & Guidelines</div>
+    </div>
+
+  </div>
+
+  <script>
+    // ==========================================================
+    // EASY CUSTOMIZATION: यहाँ सिर्फ डेटा बदलिए, यूआई हमेशा सेम रहेगा!
+    // ==========================================================
+    const testConfig = {
+      subjectTag: "🧪 CHEMISTRY • SET - 1",
+      title: "BPSC TRE Chemical Reaction SET 1",
+      totalQuestions: 10,
+      totalMinutes: 10
+    };
+
+    // Load Data dynamically on screen
+    document.getElementById('tag-badge').innerText = testConfig.subjectTag;
+    document.getElementById('test-title').innerText = testConfig.title;
+    document.getElementById('total-q').innerText = `${testConfig.totalQuestions} Questions`;
+    document.getElementById('total-time').innerText = `${testConfig.totalMinutes} Minutes`;
+    document.getElementById('ins-q-count').innerText = `कुल ${testConfig.totalQuestions} प्रश्न, सभी बहुविकल्पीय हैं`;
+
+    function startTest() {
+      alert("टेस्ट शुरू हो रहा है!");
+      // यहाँ आप टेस्ट स्क्रीन पर रिडायरेक्ट करेंगे
+      // window.location.href = "test_quiz.html";
+    }
+  </script>
+</body>
+</html>
