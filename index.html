@@ -342,10 +342,12 @@
     document.getElementById('ins-q-count').innerText = `कुल ${testConfig.totalQuestions} प्रश्न, सभी बहुविकल्पीय हैं`;
 
     function startTest() {
-      alert("टेस्ट शुरू हो रहा है!");
-      // यहाँ आप टेस्ट स्क्रीन पर रिडायरेक्ट करेंगे
-      // window.location.href = "test_quiz.html";
-    }
+  // Instructions स्क्रीन को छुपाएं
+  document.querySelector('.app-screen').style.display = 'none';
+  
+  // Test / Quiz स्क्रीन को दिखाएं
+  document.getElementById('quiz-screen').style.display = 'block';
+}
   </script>
 </body>
 </html>
